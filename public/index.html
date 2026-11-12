@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101e35"><meta name="description" content="ORION Secret Buddy — ส่งท้ายปี ส่งต่อคำขอบคุณ">
+  <title>ORION · Secret Buddy</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101e35'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-size='46' fill='%23e8c58a'%3E✧%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <header class="topbar"><a class="brand" href="/">✧ <span>ORION</span></a><span class="edition">A LITTLE GIFT. A BIG THANK YOU.</span><button id="logout" class="quiet" hidden>ออกจากระบบ ↗</button></header>
+  <main>
+    <section class="intro"><div class="eyebrow">THE ORION YEAR-END GATHERING</div><h1>Secret <em>Buddy.</em></h1><p class="tagline">ส่งท้ายปี ส่งต่อคำขอบคุณ</p><div class="chips"><span>27 พ.ย. 2569</span><span>09.30–11.00 น. · ห้อง 4</span><span>ของขวัญ ≤ 300 บาท</span></div></section>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <section id="login" class="panel login-layout" hidden>
+      <div class="story"><span class="pill">12 PEOPLE · ONE LITTLE SECRET</span><div class="constellation" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span></div><h2>ใครบางคนในทีม<br>กำลังรอของขวัญจากคุณ</h2><p>หนึ่งคน หนึ่งของขวัญ หนึ่งคำขอบคุณ<br>มาค้นพบคนที่คุณจะส่งต่อรอยยิ้มให้กัน</p><div class="mini-rule">01 ยืนยันอีเมล <b>→</b> 02 เปิดการ์ด <b>→</b> 03 เตรียมเซอร์ไพรส์</div></div>
+      <div class="login-form"><div class="step-label">YOUR SECRET STARTS HERE</div><h2>เปิดความลับของคุณ</h2><p class="muted">ใช้อีเมลที่ผู้จัดลงทะเบียนไว้ให้ทีม ORION</p><form id="email-form"><label for="email">อีเมลของคุณ</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required maxlength="254"><button class="primary" type="submit">รับรหัสยืนยัน <span>↗</span></button></form><form id="otp-form" hidden><label for="otp">รหัสยืนยัน 6 หลัก</label><input id="otp" name="otp" class="otp" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required><p class="muted small" id="otp-hint"></p><button class="primary" type="submit">ยืนยันและเข้าสู่กิจกรรม <span>✧</span></button><button type="button" id="back" class="quiet">เปลี่ยนอีเมล / ขอรหัสใหม่</button></form><p class="privacy">⌑ ผลบัดดี้ของคุณแสดงให้คุณเห็นเท่านั้น</p></div>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="welcome"><div><div class="eyebrow">WELCOME TO THE CONSTELLATION</div><h2 id="greeting"></h2></div><span id="draw-status" class="pill"></span></div>
+      <div id="member-panel" class="member-grid" hidden>
+        <div class="panel gift-card"><span class="step-label">A SECRET, JUST FOR YOU</span><div class="gift-art" aria-hidden="true">✧<div class="gift-box"><span></span></div>✦</div><h2 id="gift-heading">บัดดี้ของคุณคือใครนะ?</h2><p id="gift-description" class="muted">เปิดการ์ด แล้วเริ่มเตรียมเซอร์ไพรส์ให้เพื่อนในทีม</p><button id="reveal" class="primary">เปิดการ์ดบัดดี้ของฉัน <span>✦</span></button><div id="recipient" hidden><div class="recipient-name" id="recipient-name"></div><div class="wish-box"><strong>สิ่งที่ชอบ</strong><p id="recipient-likes"></p><strong>ของที่ไม่อยากได้ / การแพ้อาหาร</strong><p id="recipient-avoids"></p></div><p class="small muted">เก็บชื่อไว้เป็นความลับจนถึงวันเฉลยนะ ✧</p></div></div>
+        <div class="panel wishes"><div class="step-label">A LITTLE HINT FOR YOUR BUDDY</div><h2>ช่วยบัดดี้เลือกของให้คุณ</h2><p class="muted">เขียนสิ่งที่ชอบสัก 3 อย่าง หรือของที่ไม่อยากได้<br>คนที่จับได้ชื่อคุณจะเห็นข้อความนี้</p><form id="wishlist-form"><label for="likes">สิ่งที่ชอบ</label><textarea id="likes" maxlength="500" rows="3" placeholder="เช่น กาแฟ สมุดจด ของแต่งโต๊ะ"></textarea><label for="avoids">ของที่ไม่อยากได้ / การแพ้อาหาร</label><textarea id="avoids" maxlength="500" rows="2" placeholder="เช่น ไม่ทานถั่ว ไม่รับของกิน"></textarea><button class="secondary" type="submit">บันทึกคำใบ้ของฉัน ↗</button></form></div>
+      </div>
+      <section id="admin-panel" class="panel admin" hidden><div class="admin-heading"><div><div class="step-label">ORGANIZER SPACE</div><h2>จัดกลุ่มดาวของเรา</h2></div><span id="member-count" class="pill"></span></div><p class="muted">ใส่ชื่อและอีเมลให้ครบ 12 คน บันทึกรายชื่อก่อนให้สมาชิกเข้ามาเขียนคำใบ้ แล้วจึงสุ่มบัดดี้เมื่อพร้อม</p><form id="roster-form"><div class="roster-head"><span>สมาชิก</span><span>อีเมลที่ใช้รับ OTP</span></div><div id="roster"></div><div class="admin-actions"><button id="save-roster" class="secondary" type="submit">บันทึกรายชื่อ</button><button id="draw" type="button" class="primary">สุ่มบัดดี้ทั้งทีม ✧</button></div></form><p class="small muted">สุ่มแล้วล็อกผลทันที ทุกคนมีผู้ให้และผู้รับคนละ 1 คน ไม่มีใครได้ตัวเอง ผู้จัดดูสถานะเปิดการ์ดได้ แต่ไม่มีหน้ารวมคู่บัดดี้</p></section>
+    </section>
+    <section class="bottom-rules"><div><span>01 / THE GIFT</span><h3>เลือกด้วยใจ</h3><p>ของขวัญไม่เกิน 300 บาท<br>พร้อมการ์ดคำขอบคุณ 1 ใบ</p></div><div><span>02 / THE SECRET</span><h3>เก็บไว้ก่อนนะ</h3><p>ห่อของ ติดชื่อผู้รับ<br>ไม่ต้องใส่ชื่อผู้ให้</p></div><div><span>03 / THE REVEAL</span><h3>มาเฉลยพร้อมกัน</h3><p>ศุกร์ 27 พฤศจิกายน 2569<br>ถ้ามาไม่ได้ ฝากของไว้กับผู้จัด</p></div></section>
+  </main><footer>ORION <span>✧</span> GOOD PEOPLE. LITTLE SECRETS. GREAT MEMORIES.</footer>
+  <dialog id="draw-dialog"><div class="step-label">ONE DRAW. TWELVE SURPRISES.</div><h2>พร้อมสุ่มบัดดี้แล้วใช่ไหม?</h2><p>ตรวจสอบอีเมลทั้ง 12 คนให้ถูกต้องก่อน<br>หลังสุ่มจะล็อกรายชื่อและผลทันที<br>ไม่มีปุ่มสุ่มใหม่</p><div class="admin-actions"><button id="cancel-draw" class="secondary">ตรวจสอบอีกครั้ง</button><button id="confirm-draw" class="primary">ยืนยันสุ่มบัดดี้ ✦</button></div></dialog>
+</body></html>
